@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado - Fenomenologia e Existencialismo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #16a085; /* Verde azulado para diferenciar */
+            --accent: #8e44ad; /* Roxo mantido */
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --correct: #2ecc71;
+            --incorrect: #e74c3c;
+            --warning: #f39c12;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            padding: 25px 30px;
+            text-align: center;
+            color: white;
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .info-bar {
+            display: flex;
+            justify-content: space-around;
+            background: var(--dark);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+        }
+        
+        .progress-container {
+            padding: 20px 30px;
+            background: var(--light);
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .question-container {
+            padding: 30px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        .question-number {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .question-type {
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+        
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        
+        .option {
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .option:hover {
+            border-color: var(--secondary);
+            background: rgba(22, 160, 133, 0.05);
+        }
+        
+        .option.selected {
+            border-color: var(--accent);
+            background: rgba(142, 68, 173, 0.1);
+        }
+        
+        .option-letter {
+            background: var(--dark);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+        
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-prev {
+            background: #ddd;
+        }
+        
+        .btn-prev:hover {
+            background: #ccc;
+        }
+        
+        .btn-next {
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            color: white;
+        }
+        
+        .btn-next:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-submit {
+            background: linear-gradient(90deg, var(--correct), #27ae60);
+            color: white;
+        }
+        
+        .result-container {
+            padding: 30px;
+            text-align: center;
+            display: none;
+        }
+        
+        .result-header {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .score {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 20px 0;
+        }
+        
+        .result-details {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .result-item {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-item-header {
+            display: flex;
+            align-items: center;
+        }
+        
+        .result-status {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .correct .result-status {
+            background: var(--correct);
+        }
+        
+        .incorrect .result-status {
+            background: var(--incorrect);
+        }
+
+        .explanation-text {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary);
+            padding: 10px 15px;
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: #555;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .restart-btn {
+            background: linear-gradient(90deg, var(--primary), var(--dark));
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        
+        .restart-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { border-radius: 15px; }
+            header h1 { font-size: 1.8rem; }
+            .info-bar { flex-direction: column; gap: 10px; text-align: center; }
+            .question-container { padding: 20px; }
+            .question-text { font-size: 1.1rem; }
+            .btn { padding: 10px 20px; font-size: 1rem; }
+            .score { font-size: 3rem; }
+        }
+        
+        @media (max-width: 480px) {
+            header { padding: 20px 15px; }
+            .question-header { flex-direction: column; gap: 15px; align-items: flex-start; }
+            .buttons-container { flex-direction: column; gap: 10px; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-search"></i> Simulado - Fenomenologia</h1>
+            <p>Avalie seus conhecimentos sobre Husserl, Heidegger, Merleau-Ponty e a Clínica Existencial.</p>
+        </header>
+        
+        <div class="info-bar">
+            <div><i class="fas fa-book-open"></i> Psicologia Fenomenológico-Existencial</div>
+            <div><i class="fas fa-list-ol"></i> 30 Questões Objetivas</div>
+        </div>
+        
+        <div class="progress-container">
+            <div>Progresso: <span id="progress-text">0%</span></div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+        
+        <div class="question-container" id="question-container">
+            </div>
+        
+        <div class="result-container" id="result-container">
+            <h2 class="result-header">Resultado do Simulado</h2>
+            <div class="score" id="final-score">0%</div>
+            <p id="result-message">Parabéns por completar o simulado! Veja seu desempenho abaixo:</p>
+            
+            <div class="result-details" id="result-details">
+                </div>
+            
+            <button class="btn restart-btn" id="restart-btn">
+                <i class="fas fa-redo"></i> Refazer Simulado
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Banco de questões - Fenomenologia
+        const questions = [
+            {
+                type: "objective",
+                question: "René Descartes, no século XVII, estabeleceu as bases do pensamento moderno ao propor a separação entre res cogitans (pensamento) e res extensa (matéria). A Fenomenologia, especialmente a partir de Edmund Husserl, surge como uma crítica a esse modelo. Nesse contexto, a principal crítica fenomenológica ao cartesianismo reside na:",
+                options: ["Negação da existência do mundo material, priorizando apenas o mundo das ideias.", "Afirmação de que o corpo é uma máquina irrelevante para a constituição do psiquismo.", "Superação da dicotomia sujeito-objeto através do conceito de intencionalidade da consciência.", "Aceitação de que a verdade objetiva só pode ser alcançada através da matemática pura."],
+                answer: 2, // C
+                explanation: "A fenomenologia critica o dualismo (corpo/mente) e propõe a intencionalidade (consciência é sempre relação com o mundo) para unir sujeito e objeto, rejeitando a separação cartesiana.",
+                level: "Introdução à Fenomenologia"
+            },
+            {
+                type: "objective",
+                question: "Franz Brentano é frequentemente citado como um precursor fundamental da fenomenologia. Sua distinção entre fenômenos físicos e psíquicos reintroduziu um conceito escolástico que se tornou a pedra angular da psicologia fenomenológica. Esse conceito, que define a consciência como sendo sempre 'consciência de algo', é chamado de:",
+                options: ["Inconsciente Coletivo.", "Intencionalidade.", "Associação Livre.", "Dualismo Psicofísico."],
+                answer: 1, // B
+                explanation: "Franz Brentano cunhou o conceito de intencionalidade, definindo que todo ato psíquico visa um objeto; não existe consciência vazia.",
+                level: "História da Fenomenologia"
+            },
+            {
+                type: "objective",
+                question: "Na clínica fenomenológica, o psicólogo busca suspender suas teorias prévias, preconceitos e julgamentos morais para compreender a vivência do paciente tal como ela se apresenta. Segundo Husserl, esse movimento metodológico de 'colocar o mundo entre parênteses' é denominado:",
+                options: ["Transferência.", "Epoché (Redução Fenomenológica).", "Catarse.", "Maiêutica."],
+                answer: 1, // B
+                explanation: "A Epoché é a suspensão das crenças da atitude natural e dos conhecimentos prévios para focar na essência do fenômeno tal como ele se mostra.",
+                level: "Método Fenomenológico"
+            },
+            {
+                type: "objective",
+                question: "Martin Heidegger, em sua obra 'Ser e Tempo', substitui o termo tradicional 'sujeito' ou 'homem' por Dasein (Ser-aí). O uso desse termo visa enfatizar que o ser humano:",
+                options: ["É um ente isolado que observa o mundo de fora.", "É constituído essencialmente por impulsos biológicos instintivos.", "É um ser cuja essência é a sua existência, sendo inseparável do mundo (Ser-no-mundo).", "É uma substância espiritual aprisionada em um corpo físico."],
+                answer: 2, // C
+                explanation: "Dasein (Ser-aí) indica que o humano não é uma coisa fechada, mas uma abertura de sentido no mundo, sendo sua existência constituída pela relação com o mundo.",
+                level: "Heidegger / Dasein"
+            },
+            {
+                type: "objective",
+                question: "Um paciente chega à terapia relatando uma sensação profunda de estranhamento. Ele diz que 'as coisas perderam o sentido habitual' e que ele não se reconhece mais nos papéis sociais que desempenha. Para Heidegger, esse colapso dos significados cotidianos que revela a nossa liberdade e finitude é característico da:",
+                options: ["Neurose obsessiva.", "Angústia.", "Depressão endógena.", "Esquizofrenia paranoide."],
+                answer: 1, // B
+                explanation: "A angústia em Heidegger é a disposição fundamental que surge quando a familiaridade do cotidiano colapsa, revelando o 'nada' e a liberdade de ter que escolher a si mesmo.",
+                level: "Heidegger / Angústia"
+            },
+            {
+                type: "objective",
+                question: "Analise a seguinte situação: Um indivíduo vive sua vida seguindo rigorosamente o que 'se diz', o que 'se faz' e o que 'está na moda', sem nunca questionar suas próprias escolhas ou assumir a autoria de sua existência. Na analítica do Dasein, esse modo de ser é classificado como:",
+                options: ["Propriedade (Autenticidade).", "Impropriedade (Inautenticidade).", "Ser-para-a-morte.", "Transcendência."],
+                answer: 1, // B
+                explanation: "A impropriedade é o modo de ser do 'a gente' (Das Man), onde o Dasein se dilui na massa e segue o comportamento público mediano sem assumir a própria vida.",
+                level: "Heidegger / Autenticidade"
+            },
+            {
+                type: "objective",
+                question: "Medard Boss, influenciado por Heidegger, desenvolveu a Daseinsanálise. Diferente da psicanálise freudiana, que vê os sonhos como realizadores de desejos ocultos simbolizados, Boss propõe que o sonho:",
+                options: ["É um mero subproduto da atividade neural durante o sono REM.", "Deve ser interpretado através de um dicionário de símbolos universais.", "É uma modalidade de existência onde o Dasein permanece no mundo, revelando suas possibilidades de ser.", "Não possui relevância clínica, servindo apenas para descanso fisiológico."],
+                answer: 2, // C
+                explanation: "Para Boss, o sonho não esconde nada; ele é uma forma de estar no mundo e mostra as limitações ou aberturas do paciente em sua relação com a existência.",
+                level: "Daseinsanálise / Sonhos"
+            },
+            {
+                type: "objective",
+                question: "Ludwig Binswanger, ao aplicar a fenomenologia na psiquiatria, propôs que a doença mental (como a esquizofrenia ou a mania) deve ser compreendida como:",
+                options: ["Um desequilíbrio químico que deve ser tratado exclusivamente com medicação.", "Um modo específico e restrito de 'projeto de mundo' ou ser-no-mundo.", "Uma falha moral do indivíduo em se adaptar às normas sociais.", "Um mecanismo de defesa do ego contra impulsos sexuais reprimidos."],
+                answer: 1, // B
+                explanation: "Binswanger via a doença mental como uma modificação na estrutura do Dasein, um projeto de mundo alterado onde as possibilidades de ser estão restritas ou distorcidas.",
+                level: "Psicopatologia Fenomenológica"
+            },
+            {
+                type: "objective",
+                question: "Merleau-Ponty, em 'Fenomenologia da Percepção', critica tanto o empirismo quanto o intelectualismo. Para ele, a percepção primária do mundo ocorre através:",
+                options: ["Da análise lógica dos dados sensoriais pelo cérebro.", "Da corporeidade (corpo próprio) como campo de sentidos e ação.", "Da representação mental abstrata dos objetos externos.", "Da alma imaterial que habita o corpo."],
+                answer: 1, // B
+                explanation: "Merleau-Ponty coloca o corpo como o sujeito da percepção, sendo nossa âncora no mundo antes de qualquer intelectualização ou análise.",
+                level: "Merleau-Ponty / Percepção"
+            },
+            {
+                type: "objective",
+                question: "Ao analisar a obra de Paul Cézanne, Merleau-Ponty argumenta que a pintura do artista não busca representar a realidade como uma fotografia, mas sim:",
+                options: ["Copiar fielmente os contornos geométricos dos objetos.", "Expressar as alucinações internas do pintor.", "Tornar visível a experiência primordial da visão e o nascimento da ordem no caos das sensações.", "Seguir rigorosamente as regras acadêmicas de perspectiva e luz."],
+                answer: 2, // C
+                explanation: "Cézanne tentava pintar a 'percepção nascendo', o contato primordial com a matéria antes de virar um objeto intelectual definido.",
+                level: "Merleau-Ponty / Arte"
+            },
+            {
+                type: "objective",
+                question: "Na psicoterapia fenomenológico-existencial com crianças, a compreensão da infância se distancia da visão adultocêntrica. Segundo o material estudado, a principal linguagem de expressão e constituição de mundo da criança é:",
+                options: ["O discurso racional.", "O brincar.", "A escrita.", "O silêncio introspectivo."],
+                answer: 1, // B
+                explanation: "O brincar é apresentado como o modo ontológico de ser da criança, sua forma de linguagem e apropriação do mundo.",
+                level: "Clínica Infantil"
+            },
+            {
+                type: "objective",
+                question: "O conceito de 'Verdade' (Aletheia) em Heidegger difere da correspondência lógica entre intelecto e coisa (adequatio). Para a fenomenologia existencial, a verdade é entendida como:",
+                options: ["A certeza matemática irrefutável.", "O desvelamento, ou o ato de deixar o ente mostrar-se como ele é.", "A concordância entre a fala de uma pessoa e os fatos históricos.", "Um dogma religioso revelado."],
+                answer: 1, // B
+                explanation: "Aletheia é a verdade originária para os gregos e retomada por Heidegger: o desencobrimento/desvelamento do ente, tirá-lo do ocultamento.",
+                level: "Heidegger / Verdade"
+            },
+            {
+                type: "objective",
+                question: "No contexto da temporalidade do Dasein, Heidegger afirma que o ser humano não vive o tempo de forma linear (passado-presente-futuro como relógio). O 'futuro' existencial tem primazia porque:",
+                options: ["O ser humano é um 'vir-a-ser' que se projeta em suas possibilidades.", "O passado determina completamente quem somos hoje.", "O importante é viver o 'aqui e agora' sem se preocupar com o amanhã.", "O futuro é onde ocorre a recompensa após a morte."],
+                answer: 0, // A
+                explanation: "O Dasein é projeto; ele se define pelas possibilidades que projeta à sua frente. O futuro existencial é o 'vir-a-ser' que guia o presente.",
+                level: "Temporalidade"
+            },
+            {
+                type: "objective",
+                question: "Em relação à atitude do terapeuta existencial, o conceito de 'deixar-ser' (Gelassenheit) implica:",
+                options: ["Uma postura de passividade total e indiferença ao sofrimento do paciente.", "Acolher o paciente sem julgamentos, permitindo que suas possibilidades de existência se mostrem.", "Deixar o paciente fazer o que quiser, inclusive comportamentos destrutivos, sem intervenção.", "Forçar o paciente a aceitar a interpretação do terapeuta sobre sua vida."],
+                answer: 1, // B
+                explanation: "'Deixar-ser' não é abandono, é uma acolhida ativa e serena que permite que o outro se mostre sem as imposições teóricas do terapeuta.",
+                level: "Clínica / Postura"
+            },
+            {
+                type: "objective",
+                question: "A expressão 'Ser-com' (Mitsein) em Heidegger indica que:",
+                options: ["O ser humano nasce sozinho e morre sozinho, sendo a convivência uma ilusão.", "A solidão é o estado natural do homem, e a sociedade o corrompe.", "A coexistência é uma estrutura ontológica fundamental; o mundo do Dasein é sempre um mundo compartilhado.", "Devemos estar sempre acompanhados para evitar a angústia."],
+                answer: 2, // C
+                explanation: "O Dasein é essencialmente Ser-com; mesmo quando está fisicamente só, sua estrutura refere-se aos outros (ex: a cadeira vazia remete a alguém).",
+                level: "Heidegger / Mitsein"
+            },
+            {
+                type: "objective",
+                question: "Considerando a fenomenologia da percepção de Merleau-Ponty, a frase 'O corpo é o veículo do ser no mundo' significa que:",
+                options: ["O corpo é apenas um transporte para a mente, que é quem realmente vive.", "Ter um corpo é o que nos permite habitar o espaço e o tempo e interagir com objetos significativos.", "Devemos cuidar da saúde física apenas para viver mais tempo.", "O corpo é um obstáculo para o conhecimento verdadeiro."],
+                answer: 1, // B
+                explanation: "O corpo não é um objeto que possuímos, mas a condição de possibilidade para existirmos, percebermos e termos um mundo.",
+                level: "Merleau-Ponty / Corpo"
+            },
+            {
+                type: "objective",
+                question: "Husserl distingue 'Noese' de 'Noema'. Se aplicarmos isso à percepção de uma árvore, o 'Noema' seria:",
+                options: ["A árvore física, real, feita de madeira e folhas.", "O ato psíquico de olhar para a árvore.", "A árvore tal como é percebida pela consciência (o sentido 'árvore percebida').", "A imagem da árvore na retina do olho."],
+                answer: 2, // C
+                explanation: "O Noema é o 'objeto intencional' ou sentido percebido tal como se apresenta à consciência, distinto do objeto físico em si.",
+                level: "Husserl / Noema"
+            },
+            {
+                type: "objective",
+                question: "Um dos conceitos centrais da Daseinsanálise é o de 'Poder-ser'. Isso significa que, na terapia, o foco está em:",
+                options: ["Diagnosticar as patologias imutáveis do paciente.", "Analisar os traumas da infância que determinaram o presente.", "Descobrir e libertar as possibilidades de existência que estão bloqueadas ou restritas.", "Adaptar o paciente às normas da sociedade para que ele seja funcional."],
+                answer: 2, // C
+                explanation: "A terapia visa desbloquear o 'poder-ser' (as potencialidades e liberdade) que ficou restrito pela neurose ou psicose.",
+                level: "Daseinsanálise"
+            },
+            {
+                type: "objective",
+                question: "Sobre a fantasia na infância, sob a ótica fenomenológica apresentada, é correto afirmar:",
+                options: ["É uma fuga da realidade que deve ser corrigida pelos pais.", "É um erro de percepção típico da imaturidade cerebral.", "É um modo de aproximar a realidade, tornando-a familiar e acolhedora para a criança.", "Não possui função estruturante para o psiquismo."],
+                answer: 2, // C
+                explanation: "A fantasia é funcional; ela ajuda a criança a lidar com a realidade de forma segura, assimilável e criativa.",
+                level: "Infância"
+            },
+            {
+                type: "objective",
+                question: "Heidegger utiliza o termo 'Cura' (Sorge - também traduzido como Cuidado) para definir a estrutura do ser do Dasein. A Cura articula-se em três momentos, EXCETO:",
+                options: ["Facticidade (o já estar no mundo).", "Existencialidade (o projetar-se para o futuro).", "Decadência (o estar junto aos entes na ocupação cotidiana).", "Pulsão de Morte (o desejo inconsciente de retorno ao inorgânico)."],
+                answer: 3, // D
+                explanation: "'Pulsão de Morte' é um conceito Freudiano (Psicanálise). A estrutura da Cura (Sorge) envolve existencialidade, facticidade e queda (decadência).",
+                level: "Heidegger / Cura"
+            },
+            {
+                type: "objective",
+                question: "A clínica fenomenológica entende a psicopatologia não como um conjunto de sintomas a serem eliminados, mas como:",
+                options: ["Fenômenos sem sentido causados por estresse.", "Modos de existência que comunicam uma forma de estar no mundo, ainda que sofrida.", "Erros cognitivos que precisam de reestruturação lógica.", "Desequilíbrios energéticos nos chakras."],
+                answer: 1, // B
+                explanation: "O sintoma é uma comunicação de um modo de ser; ele tem um sentido dentro do projeto de mundo do paciente e revela como ele lida com sua existência.",
+                level: "Psicopatologia"
+            },
+            {
+                type: "objective",
+                question: "Para Merleau-Ponty, o 'esquema corporal' não é apenas uma representação geométrica do corpo, mas:",
+                options: ["Um resumo das partes anatômicas decoradas.", "A consciência global da postura do corpo no mundo intersensorial e sua capacidade de ação.", "A imagem idealizada que temos no espelho.", "O mapa genético do indivíduo."],
+                answer: 1, // B
+                explanation: "O esquema corporal é a consciência prática e dinâmica do corpo no espaço, permitindo a ação e a coordenação motora sem a necessidade de pensar deliberadamente.",
+                level: "Merleau-Ponty / Corpo"
+            },
+            {
+                type: "objective",
+                question: "Na perspectiva de Heidegger, a técnica moderna e a visão científica tendem a transformar tudo em 'recurso' ou 'objeto'. A psicologia fenomenológica resiste a isso ao:",
+                options: ["Tratar o ser humano como um objeto de estudo mensurável e previsível.", "Buscar leis universais de comportamento baseadas em estatística.", "Resgatar a singularidade da experiência humana e a questão do sentido.", "Usar testes padronizados para classificar personalidades."],
+                answer: 2, // C
+                explanation: "A fenomenologia resiste à objetificação (tornar coisa) do humano, focando no sentido vivido e na singularidade de cada existência.",
+                level: "Crítica à Técnica"
+            },
+            {
+                type: "objective",
+                question: "A 'atitude natural', criticada por Husserl, caracteriza-se por:",
+                options: ["Viver em contato com a natureza e o meio ambiente.", "A crença ingênua na existência independente e óbvia do mundo e das coisas, sem questionar como elas se constituem para a consciência.", "O comportamento espontâneo e sem inibições.", "A prática de meditação transcendental."],
+                answer: 1, // B
+                explanation: "A atitude natural é o nosso estado padrão de aceitar a realidade como dada e óbvia, o oposto da atitude filosófica/fenomenológica que questiona a essência.",
+                level: "Husserl / Atitude Natural"
+            },
+            {
+                type: "objective",
+                question: "O termo 'Befindlichkeit' (Disposição Afetiva ou Situacionalidade) em Heidegger ensina que:",
+                options: ["As emoções são irracionais e devem ser controladas pela razão.", "Nós sempre 'já estamos' em algum humor ou estado de ânimo que colore nossa abertura para o mundo.", "O afeto é secundário em relação à cognição.", "A depressão é apenas uma falha na produção de serotonina."],
+                answer: 1, // B
+                explanation: "A disposição afetiva revela como o mundo nos afeta e como nos encontramos nele antes de qualquer pensamento racional.",
+                level: "Heidegger / Afetos"
+            },
+            {
+                type: "objective",
+                question: "No material de estudo, a relação entre 'Brincar' e 'Falar' é apresentada. É correto dizer que:",
+                options: ["O brincar é inferior ao falar, pois não usa palavras.", "É possível falar quando se brinca, e o brincar é o modo fundamental de relação da criança com o mundo.", "A criança deve parar de brincar para aprender a falar sério.", "O brincar é apenas passatempo, enquanto o falar é trabalho."],
+                answer: 1, // B
+                explanation: "O texto destaca que é possível falar brincando e que o brincar é a relação primária e séria da criança com o mundo e a linguagem.",
+                level: "Infância"
+            },
+            {
+                type: "objective",
+                question: "A 'abertura existencial' do Dasein refere-se a:",
+                options: ["Sua capacidade de ser extrovertido e fazer amigos.", "O fato de que o ser humano é um espaço iluminado (clareira) onde os entes e significados podem aparecer.", "A vulnerabilidade física do corpo humano a ferimentos.", "A predisposição genética a doenças mentais."],
+                answer: 1, // B
+                explanation: "A abertura (ou clareira) é a característica ontológica do Dasein de ser o local onde o Ser se manifesta, onde as coisas ganham sentido.",
+                level: "Heidegger / Clareira"
+            },
+            {
+                type: "objective",
+                question: "Diferente de Sartre, que dizia que 'a existência precede a essência', a Daseinsanálise de Boss evita teorizações abstratas excessivas e foca:",
+                options: ["Na análise concreta dos fenômenos que aparecem na relação terapêutica.", "Na construção de uma nova metafísica do ser.", "Na política de esquerda como forma de libertação.", "Na catequização religiosa do paciente."],
+                answer: 0, // A
+                explanation: "Boss focava na experiência concreta e imediata do paciente, evitando as superestruturas teóricas da psicanálise clássica ou filosofias abstratas distantes da clínica.",
+                level: "Daseinsanálise"
+            },
+            {
+                type: "objective",
+                question: "Quando um psicoterapeuta fenomenológico pergunta 'Para que?' (sentido/finalidade) em vez de 'Por que?' (causa), ele está buscando:",
+                options: ["A causa eficiente mecânica do comportamento.", "A justificação moral da atitude do paciente.", "O sentido intencional e o projeto de mundo do paciente.", "A raiz biológica do problema."],
+                answer: 2, // C
+                explanation: "A pergunta 'para que?' busca a finalidade e o sentido (teleologia existencial), enquanto 'por que?' busca a causa mecânica e determinista.",
+                level: "Técnica Terapêutica"
+            },
+            {
+                type: "objective",
+                question: "Segundo o material sobre a criança e a infância, o 'adulto em miniatura' é:",
+                options: ["A forma correta de ver a criança, pois ela só é menor em tamanho.", "Uma in-compreensão histórica que ignora a especificidade ontológica da infância.", "O objetivo final da educação infantil.", "Um conceito defendido por Merleau-Ponty."],
+                answer: 1, // B
+                explanation: "O material trata a visão de 'adulto em miniatura' como uma falha histórica que negava a especificidade do modo de ser da criança.",
+                level: "História da Infância"
+            }
+        ];
+
+        // Variáveis de estado
+        let currentQuestion = 0;
+        let score = 0;
+        
+        // Elementos DOM
+        const questionContainer = document.getElementById('question-container');
+        const progressText = document.getElementById('progress-text');
+        const progressFill = document.getElementById('progress-fill');
+        const resultContainer = document.getElementById('result-container');
+        const finalScore = document.getElementById('final-score');
+        const resultDetails = document.getElementById('result-details');
+        const resultMessage = document.getElementById('result-message');
+        const restartBtn = document.getElementById('restart-btn');
+        
+        // Inicializar o simulado
+        function initQuiz() {
+            // Resetar respostas ao carregar
+            questions.forEach(q => {
+                q.userAnswer = null;
+                q.correct = undefined;
+            });
+            showQuestion();
+            updateProgress();
+        }
+        
+        // Mostrar questão atual
+        function showQuestion() {
+            const q = questions[currentQuestion];
+            
+            let questionHTML = `
+                <div class="question-header">
+                    <div class="question-number">${currentQuestion + 1}</div>
+                    <div class="question-type">Questão Objetiva • ${q.level}</div>
+                </div>
+                <div class="question-text">${q.question}</div>
+            `;
+            
+            questionHTML += '<div class="options-container">';
+            q.options.forEach((option, index) => {
+                const selected = q.userAnswer === index ? 'selected' : '';
+                questionHTML += `
+                    <div class="option ${selected}" data-index="${index}">
+                        <div class="option-letter">${String.fromCharCode(65 + index)}</div>
+                        <div class="option-text">${option}</div>
+                    </div>
+                `;
+            });
+            questionHTML += '</div>';
+            
+            questionHTML += `
+                <div class="buttons-container">
+                    <button class="btn btn-prev" id="prev-btn" ${currentQuestion === 0 ? 'disabled' : ''}>
+                        <i class="fas fa-arrow-left"></i> Anterior
+                    </button>
+            `;
+            
+            if (currentQuestion < questions.length - 1) {
+                questionHTML += `
+                    <button class="btn btn-next" id="next-btn">
+                        Próxima <i class="fas fa-arrow-right"></i>
+                    </button>
+                `;
+            } else {
+                questionHTML += `
+                    <button class="btn btn-submit" id="submit-btn">
+                        <i class="fas fa-check-circle"></i> Finalizar Simulado
+                    </button>
+                `;
+            }
+            
+            questionHTML += '</div>';
+            
+            questionContainer.innerHTML = questionHTML;
+            
+            // Adicionar eventos
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', () => {
+                    document.querySelectorAll('.option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    option.classList.add('selected');
+                    q.userAnswer = parseInt(option.dataset.index);
+                });
+            });
+            
+            document.getElementById('prev-btn').addEventListener('click', prevQuestion);
+            
+            if (currentQuestion < questions.length - 1) {
+                document.getElementById('next-btn').addEventListener('click', nextQuestion);
+            } else {
+                document.getElementById('submit-btn').addEventListener('click', finishQuiz);
+            }
+        }
+        
+        // Atualizar barra de progresso
+        function updateProgress() {
+            const answered = questions.filter(q => q.userAnswer !== null).length;
+            const progress = (answered / questions.length) * 100;
+            progressText.textContent = `${Math.round(progress)}%`;
+            progressFill.style.width = `${progress}%`;
+        }
+        
+        // Navegar para a próxima questão
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion();
+                updateProgress();
+            }
+        }
+        
+        // Voltar para a questão anterior
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+                updateProgress();
+            }
+        }
+        
+        // Finalizar o simulado e mostrar resultados
+        function finishQuiz() {
+            // Calcular pontuação
+            let objectiveScore = 0;
+            
+            questions.forEach((q) => {
+                if (q.userAnswer === q.answer) {
+                    q.correct = true;
+                    objectiveScore++;
+                } else {
+                    q.correct = false;
+                }
+            });
+            
+            const maxObjective = questions.length;
+            score = Math.round((objectiveScore / maxObjective) * 100);
+            
+            // Exibir resultados
+            showResults();
+        }
+        
+        // Mostrar tela de resultados
+        function showResults() {
+            questionContainer.style.display = 'none';
+            resultContainer.style.display = 'block';
+            
+            finalScore.textContent = `${score}%`;
+            
+            // Mensagem personalizada baseada na pontuação
+            if (score >= 80) {
+                resultMessage.textContent = "Excelente! Você compreendeu profundamente os conceitos fenomenológicos.";
+            } else if (score >= 60) {
+                resultMessage.textContent = "Bom trabalho! Você tem uma boa base, mas revise alguns conceitos de Heidegger e Merleau-Ponty.";
+            } else if (score >= 40) {
+                resultMessage.textContent = "Está no caminho certo! A fenomenologia é complexa, continue estudando.";
+            } else {
+                resultMessage.textContent = "Não desanime! Reveja os materiais teóricos e tente novamente.";
+            }
+            
+            // Detalhes dos resultados
+            let detailsHTML = '';
+            
+            questions.forEach((q, index) => {
+                detailsHTML += `
+                    <div class="result-item ${q.correct ? 'correct' : 'incorrect'}">
+                        <div class="result-item-header">
+                            <div class="result-status">${index + 1}</div>
+                            <strong>Questão ${index + 1}:</strong>&nbsp;${q.level}
+                        </div>
+                        
+                        <div style="margin-bottom: 10px;">${q.question}</div>
+                        
+                        <div>${q.correct ? '<strong style="color:var(--correct)">Resposta Correta!</strong>' : '<strong style="color:var(--incorrect)">Resposta Incorreta.</strong>'}</div>
+                        
+                        ${!q.correct ? `<div><strong>Sua resposta:</strong> ${q.userAnswer !== null ? String.fromCharCode(65 + q.userAnswer) + ' - ' + q.options[q.userAnswer] : 'Nenhuma'}</div>` : ''}
+                        
+                        <div><strong>Gabarito:</strong> ${String.fromCharCode(65 + q.answer)} - ${q.options[q.answer]}</div>
+                        
+                        <div class="explanation-text">
+                            <strong><i class="fas fa-lightbulb"></i> Explicação:</strong> ${q.explanation}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            resultDetails.innerHTML = detailsHTML;
+        }
+        
+        // Reiniciar o simulado
+        function restartQuiz() {
+            // Resetar estado
+            currentQuestion = 0;
+            score = 0;
+            
+            // Resetar respostas
+            questions.forEach(q => {
+                q.userAnswer = null;
+                q.correct = undefined;
+            });
+            
+            // Mostrar primeira questão
+            questionContainer.style.display = 'flex';
+            resultContainer.style.display = 'none';
+            showQuestion();
+            updateProgress();
+        }
+        
+        // Event Listeners
+        restartBtn.addEventListener('click', restartQuiz);
+        
+        // Iniciar o simulado
+        initQuiz();
+    </script>
+</body>
+</html>
