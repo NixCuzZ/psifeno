@@ -14,8 +14,8 @@
         }
         
         :root {
-            --primary: #2c3e50; /* Azul Profundo (Filosofia) */
-            --secondary: #d35400; /* Laranja (Humanas/Existência) */
+            --primary: #2c3e50; /* Azul Profundo */
+            --secondary: #d35400; /* Laranja Telha */
             --accent: #e67e22;
             --light: #ecf0f1;
             --dark: #2c3e50;
@@ -134,7 +134,6 @@
             color: #2c3e50;
         }
 
-        /* Estilo para caixas de texto dentro da pergunta (ex: colunas) */
         .text-box {
             background: #f4f6f7;
             border-left: 4px solid var(--primary);
@@ -167,7 +166,6 @@
             background: rgba(211, 84, 0, 0.05);
         }
 
-        /* Feedback Visual */
         .option.correct {
             background-color: rgba(39, 174, 96, 0.2);
             border-color: var(--correct);
@@ -319,10 +317,10 @@
     </div>
 
     <script>
-        // BANCO DE QUESTÕES COMPLETO (30 QUESTÕES) - FENOMENOLOGIA
+        // BANCO DE QUESTÕES COMPLETO E LIMPO (30 QUESTÕES)
         const questions = [
             {
-                question: "<strong>QUESTÃO 1</strong><br>A Fenomenologia de Edmund Husserl surge como uma crítica contundente ao psicologismo e ao naturalismo vigentes no século XIX. Ao propor o método da redução fenomenológica (ou epoché), Husserl não nega a existência do mundo, mas propõe uma mudança de atitude. [cite_start]Nesse contexto, assinale a alternativa que descreve corretamente a atitude fenomenológica em contraste com a atitude natural [cite: 5-8]:",
+                question: "<strong>QUESTÃO 1</strong><br>A Fenomenologia de Edmund Husserl surge como uma crítica contundente ao psicologismo e ao naturalismo vigentes no século XIX. Ao propor o método da redução fenomenológica (ou epoché), Husserl não nega a existência do mundo, mas propõe uma mudança de atitude. Nesse contexto, assinale a alternativa que descreve corretamente a atitude fenomenológica em contraste com a atitude natural:",
                 options: [
                     "A atitude fenomenológica busca explicar as causas biológicas dos fenômenos psíquicos, enquanto a atitude natural se preocupa com a descrição subjetiva.",
                     "Na atitude natural, aceitamos a existência do mundo como óbvia e dada; na fenomenológica, suspendemos essa crença para investigar como o mundo se constitui para a consciência.",
@@ -331,10 +329,10 @@
                     "A atitude fenomenológica utiliza a associação livre para descobrir os conteúdos inconscientes que a atitude natural reprimiu."
                 ],
                 answer: 1, // B
-                [cite_start]explanation: "A essência da fenomenologia de Husserl é a mudança da atitude natural (crença ingênua na realidade objetiva) para a fenomenológica (suspensão/epoché para analisar como o mundo aparece à consciência) [cite: 280-281]."
+                explanation: "A essência da fenomenologia de Husserl é a mudança da atitude natural (crença ingênua na realidade objetiva) para a fenomenológica (suspensão/epoché para analisar como o mundo aparece à consciência)."
             },
             {
-                question: "<strong>QUESTÃO 2</strong><br>Relacione os filósofos/autores da Coluna A com seus respectivos conceitos-chave ou contribuições apresentados na Coluna B.<br><br><div class='text-box'><strong>Coluna A</strong><br>1. Franz Brentano<br>2. Edmund Husserl<br>3. Martin Heidegger<br>4. [cite_start]Merleau-Ponty<br><br><strong>Coluna B</strong><br>( ) Crítica à dicotomia sujeito-objeto através da intencionalidade.<br>( ) Dasein (Ser-aí) e a analítica existencial.<br>( ) A percepção como ato do corpo próprio (corporeidade).<br>( ) Desenvolvimento do método da redução fenomenológica e conceitos de Noese e Noema.</div><br>A sequência correta é [cite: 16-26]:",
+                question: "<strong>QUESTÃO 2</strong><br>Relacione os filósofos/autores da Coluna A com seus respectivos conceitos-chave ou contribuições apresentados na Coluna B.<br><br><div class='text-box'><strong>Coluna A</strong><br>1. Franz Brentano<br>2. Edmund Husserl<br>3. Martin Heidegger<br>4. Merleau-Ponty<br><br><strong>Coluna B</strong><br>( ) Crítica à dicotomia sujeito-objeto através da intencionalidade.<br>( ) Dasein (Ser-aí) e a analítica existencial.<br>( ) A percepção como ato do corpo próprio (corporeidade).<br>( ) Desenvolvimento do método da redução fenomenológica e conceitos de Noese e Noema.</div><br>A sequência correta é:",
                 options: [
                     "1-3-4-2",
                     "2-3-4-1",
@@ -343,10 +341,10 @@
                     "1-3-2-4"
                 ],
                 answer: 0, // A
-                explanation: "Brentano (1) = Intencionalidade. Heidegger (3) = Dasein. Merleau-Ponty (4) = Corporeidade. Husserl (2) = Redução/Noema. [cite_start]Nota: A opção ajustada segue a lógica correta dos autores [cite: 283-284]."
+                explanation: "Brentano (1) = Intencionalidade. Heidegger (3) = Dasein. Merleau-Ponty (4) = Corporeidade. Husserl (2) = Redução/Noema."
             },
             {
-                question: "<strong>QUESTÃO 3</strong><br>Analise as duas asserções abaixo e a relação proposta entre elas.<br><br>I. Na clínica daseinsanalítica, o terapeuta deve adotar uma postura de 'querer terapêutico' nulo, ou seja, deve abster-se de impor metas de cura ou conduzir o paciente para um ideal de felicidade pré-estabelecido.<br><strong>PORQUE</strong><br>II. [cite_start]O objetivo da análise existencial é permitir que o paciente, através do desvelamento de suas possibilidades, aproprie-se de sua existência (propriedade) e escolha livremente seu caminho, algo que a imposição de um 'saber' técnico impediria.<br><br>A respeito dessas asserções, assinale a opção correta [cite: 34-38]:",
+                question: "<strong>QUESTÃO 3</strong><br>Analise as duas asserções abaixo e a relação proposta entre elas.<br><br>I. Na clínica daseinsanalítica, o terapeuta deve adotar uma postura de 'querer terapêutico' nulo, ou seja, deve abster-se de impor metas de cura ou conduzir o paciente para um ideal de felicidade pré-estabelecido.<br><strong>PORQUE</strong><br>II. O objetivo da análise existencial é permitir que o paciente, através do desvelamento de suas possibilidades, aproprie-se de sua existência (propriedade) e escolha livremente seu caminho, algo que a imposição de um 'saber' técnico impediria.<br><br>A respeito dessas asserções, assinale a opção correta:",
                 options: [
                     "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I.",
                     "As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa correta da I.",
@@ -355,10 +353,10 @@
                     "As asserções I e II são proposições falsas."
                 ],
                 answer: 0, // A
-                explanation: "Ambas são verdadeiras e conectadas. O terapeuta 'quer nada' (não impõe) para que o paciente possa assumir sua própria verdade (propriedade). [cite_start]Se o terapeuta impõe, o paciente não é livre [cite: 285-287]."
+                explanation: "Ambas são verdadeiras e conectadas. O terapeuta 'quer nada' (não impõe) para que o paciente possa assumir sua própria verdade (propriedade). Se o terapeuta impõe, o paciente não é livre."
             },
             {
-                question: "<strong>QUESTÃO 4</strong><br>Leia o trecho: 'O ser humano e o mundo não são entidades separadas que precisam ser unidas posteriormente. O homem é, desde sempre, abertura para o mundo.' Esse fragmento refere-se ao conceito heideggeriano de Ser-no-mundo. [cite_start]Diante disso, como a Daseinsanálise compreende a perda de um ente querido (luto) [cite: 44-46]?",
+                question: "<strong>QUESTÃO 4</strong><br>Leia o trecho: 'O ser humano e o mundo não são entidades separadas que precisam ser unidas posteriormente. O homem é, desde sempre, abertura para o mundo.' Esse fragmento refere-se ao conceito heideggeriano de Ser-no-mundo. Diante disso, como a Daseinsanálise compreende a perda de um ente querido (luto)?",
                 options: [
                     "Como um processo intrapsíquico de desinvestimento libidinal do objeto perdido.",
                     "Como uma falha no processamento cognitivo da realidade da morte.",
@@ -367,10 +365,10 @@
                     "Como uma oportunidade de isolamento necessário para fortalecer o ego individual."
                 ],
                 answer: 2, // C
-                [cite_start]explanation: "Como o Dasein é ser-no-mundo e ser-com, a morte de alguém significativo não é perda de um 'objeto externo', mas o colapso de um mundo de significados compartilhados [cite: 49-50, 288-290]."
+                explanation: "Como o Dasein é ser-no-mundo e ser-com, a morte de alguém significativo não é perda de um 'objeto externo', mas o colapso de um mundo de significados compartilhados."
             },
             {
-                [cite_start]question: "<strong>QUESTÃO 5</strong><br>Sobre a psicoterapia fenomenológico-existencial com crianças, analise as sentenças abaixo e classifique-as como Verdadeiras (V) ou Falsas (F):<br><br>( ) A criança deve ser compreendida como um 'adulto em miniatura', cuja racionalidade ainda é imperfeita.<br>( ) O brincar é a linguagem própria da criança e o modo como ela constitui e compreende o seu mundo.<br>( ) A fantasia é um mecanismo de fuga da realidade que deve ser eliminado para que a criança amadureça.<br>( ) Na fantasia e no brincar, a criança aproxima a realidade, tornando-a familiar e acolhedora.<br><br>A sequência correta é [cite: 53-58]:",
+                question: "<strong>QUESTÃO 5</strong><br>Sobre a psicoterapia fenomenológico-existencial com crianças, analise as sentenças abaixo e classifique-as como Verdadeiras (V) ou Falsas (F):<br><br>( ) A criança deve ser compreendida como um 'adulto em miniatura', cuja racionalidade ainda é imperfeita.<br>( ) O brincar é a linguagem própria da criança e o modo como ela constitui e compreende o seu mundo.<br>( ) A fantasia é um mecanismo de fuga da realidade que deve ser eliminado para que a criança amadureça.<br>( ) Na fantasia e no brincar, a criança aproxima a realidade, tornando-a familiar e acolhedora.<br><br>A sequência correta é:",
                 options: [
                     "V-V-F-F",
                     "F-V-F-V",
@@ -379,10 +377,10 @@
                     "F-V-V-F"
                 ],
                 answer: 1, // B
-                explanation: "Falso que é 'adulto em miniatura'. Verdadeiro que brincar é linguagem. Falso que fantasia deve ser eliminada (ela é estruturante). [cite_start]Verdadeiro que fantasia aproxima a realidade [cite: 291-294]."
+                explanation: "Falso que é 'adulto em miniatura'. Verdadeiro que brincar é linguagem. Falso que fantasia deve ser eliminada (ela é estruturante). Verdadeiro que fantasia aproxima a realidade."
             },
             {
-                question: "<strong>QUESTÃO 6</strong><br>Heidegger diferencia os conceitos de Medo e Angústia. [cite_start]Enquanto o medo tem um objeto determinado, a angústia caracteriza-se por [cite: 64-66]:",
+                question: "<strong>QUESTÃO 6</strong><br>Heidegger diferencia os conceitos de Medo e Angústia. Enquanto o medo tem um objeto determinado, a angústia caracteriza-se por:",
                 options: [
                     "Ser um medo intenso e paralisante diante de um perigo físico real.",
                     "Ter como objeto o próprio 'nada' e a falta de sentido das ocupações cotidianas, revelando ao Dasein sua liberdade e finitude.",
@@ -391,10 +389,10 @@
                     "Ser o medo da morte biológica iminente."
                 ],
                 answer: 1, // B
-                explanation: "Heidegger distingue medo (objeto intra-mundano) de angústia (o nada, a indeterminação, o ser-no-mundo como tal). [cite_start]A angústia individualiza e revela a liberdade [cite: 68, 295-297]."
+                explanation: "Heidegger distingue medo (objeto intra-mundano) de angústia (o nada, a indeterminação, o ser-no-mundo como tal). A angústia individualiza e revela a liberdade."
             },
             {
-                question: "<strong>QUESTÃO 7</strong><br>Um paciente relata: 'Eu faço tudo o que esperam de mim. Escolhi minha profissão porque meu pai quis, casei porque estava na idade certa, mas sinto que não sou eu quem vive minha vida.' [cite_start]À luz da analítica do Dasein, esse relato descreve o modo de existência denominado [cite: 73-75]:",
+                question: "<strong>QUESTÃO 7</strong><br>Um paciente relata: 'Eu faço tudo o que esperam de mim. Escolhi minha profissão porque meu pai quis, casei porque estava na idade certa, mas sinto que não sou eu quem vive minha vida.' À luz da analítica do Dasein, esse relato descreve o modo de existência denominado:",
                 options: [
                     "Ser-para-a-morte.",
                     "Transcendência.",
@@ -403,10 +401,10 @@
                     "Fenomenologia Pura."
                 ],
                 answer: 2, // C
-                [cite_start]explanation: "Viver conforme o 'esperam de mim', seguindo a massa (o 'a gente') sem escolha própria, é a definição de Impropriedade ou existência inautêntica [cite: 78, 298-299]."
+                explanation: "Viver conforme o 'esperam de mim', seguindo a massa (o 'a gente') sem escolha própria, é a definição de Impropriedade ou existência inautêntica."
             },
             {
-                question: "<strong>QUESTÃO 8</strong><br>Medard Boss, ao desenvolver a Daseinsanálise, criticou a interpretação freudiana dos sonhos. [cite_start]Para Boss, o sonho[cite: 82]:",
+                question: "<strong>QUESTÃO 8</strong><br>Medard Boss, ao desenvolver a Daseinsanálise, criticou a interpretação freudiana dos sonhos. Para Boss, o sonho:",
                 options: [
                     "Esconde um conteúdo latente que precisa ser decifrado simbolicamente.",
                     "É uma realização alucinatória de desejos sexuais infantis.",
@@ -415,10 +413,10 @@
                     "Deve ser ignorado na terapia para focar apenas na consciência desperta."
                 ],
                 answer: 3, // D
-                explanation: "Boss rejeita a distinção latente/manifesto de Freud. O sonho é uma forma de estar no mundo. [cite_start]Se sonho que estou preso, estou existencialmente restrito, não é um símbolo de outra coisa [cite: 86-87, 300-302]."
+                explanation: "Boss rejeita a distinção latente/manifesto de Freud. O sonho é uma forma de estar no mundo. Se sonho que estou preso, estou existencialmente restrito, não é um símbolo de outra coisa."
             },
             {
-                question: "<strong>QUESTÃO 9</strong><br>Merleau-Ponty utiliza a obra de Paul Cézanne para ilustrar sua teoria da percepção. [cite_start]O que a pintura de Cézanne revela sobre a experiência humana, segundo o autor [cite: 89-90]?",
+                question: "<strong>QUESTÃO 9</strong><br>Merleau-Ponty utiliza a obra de Paul Cézanne para ilustrar sua teoria da percepção. O que a pintura de Cézanne revela sobre a experiência humana, segundo o autor?",
                 options: [
                     "Que a visão é uma câmera fotográfica que captura o mundo objetivamente.",
                     "Que a percepção é uma construção intelectual baseada em leis geométricas.",
@@ -427,10 +425,10 @@
                     "Que a percepção visual é independente do resto do corpo e do movimento."
                 ],
                 answer: 2, // C
-                [cite_start]explanation: "Merleau-Ponty usa Cézanne para mostrar a 'percepção nascente', o contato vivo do corpo com a matéria antes de o intelecto organizar tudo em formas geométricas definidas [cite: 93-94, 303-304]."
+                explanation: "Merleau-Ponty usa Cézanne para mostrar a 'percepção nascente', o contato vivo do corpo com a matéria antes de o intelecto organizar tudo em formas geométricas definidas."
             },
             {
-                question: "<strong>QUESTÃO 10</strong><br>Heidegger propõe uma temporalidade extática para o Dasein, diferente do tempo cronológico. Associe as êxtases temporais às suas definições existenciais:<br><br><div class='text-box'>1. Futuro<br>2. Passado (Vigor de ter sido)<br>3. [cite_start]Presente<br><br>( ) É o modo da ocupação junto aos entes intramundanos; a atualidade.<br>( ) É o primado da existência; o projeto, o lançar-se para suas possibilidades.<br>( ) É a facticidade; aquilo que já somos, nossa história e condições.</div><br>A ordem correta é [cite: 97-106]:",
+                question: "<strong>QUESTÃO 10</strong><br>Heidegger propõe uma temporalidade extática para o Dasein, diferente do tempo cronológico. Associe as êxtases temporais às suas definições existenciais:<br><br><div class='text-box'>1. Futuro<br>2. Passado (Vigor de ter sido)<br>3. Presente<br><br>( ) É o modo da ocupação junto aos entes intramundanos; a atualidade.<br>( ) É o primado da existência; o projeto, o lançar-se para suas possibilidades.<br>( ) É a facticidade; aquilo que já somos, nossa história e condições.</div><br>A ordem correta é:",
                 options: [
                     "3-1-2",
                     "1-2-3",
@@ -439,10 +437,10 @@
                     "1-3-2"
                 ],
                 answer: 0, // A
-                explanation: "Futuro = Projeto (Vir-a-ser, o principal). Passado = Facticidade (Vigor de ter sido). [cite_start]Presente = Ocupação/Decadência (estar junto às coisas) [cite: 107, 305-307]."
+                explanation: "Futuro = Projeto (Vir-a-ser, o principal). Passado = Facticidade (Vigor de ter sido). Presente = Ocupação/Decadência (estar junto às coisas)."
             },
             {
-                question: "<strong>QUESTÃO 11</strong><br>'A consciência não é um receptáculo vazio que recebe estímulos passivamente.' Essa frase resume a crítica de Franz Brentano e Husserl ao empirismo. [cite_start]O conceito de Intencionalidade afirma que [cite: 112-114]:",
+                question: "<strong>QUESTÃO 11</strong><br>'A consciência não é um receptáculo vazio que recebe estímulos passivamente.' Essa frase resume a crítica de Franz Brentano e Husserl ao empirismo. O conceito de Intencionalidade afirma que:",
                 options: [
                     "Temos sempre a intenção consciente de fazer o bem.",
                     "A consciência é sempre um ato de dirigir-se a algo; não há pensar sem algo pensado, nem amar sem algo amado.",
@@ -451,10 +449,10 @@
                     "A consciência é fechada em si mesma e não tem acesso direto ao mundo (solipsismo)."
                 ],
                 answer: 1, // B
-                [cite_start]explanation: "Intencionalidade (Brentano/Husserl) define que a consciência não é uma caixa, mas setas dirigidas ao mundo [cite: 116-117, 308-309]."
+                explanation: "Intencionalidade (Brentano/Husserl) define que a consciência não é uma caixa, mas setas dirigidas ao mundo."
             },
             {
-                question: "<strong>QUESTÃO 12</strong><br>Na terapia existencial, o conceito de Cuidado (Sorge) refere-se à estrutura fundamental do Dasein. [cite_start]Quando um paciente demonstra excessiva preocupação com o que os outros pensam, perdendo-se no 'falatório' público, ele está vivenciando qual aspecto (impróprio) do Cuidado [cite: 121-123]?",
+                question: "<strong>QUESTÃO 12</strong><br>Na terapia existencial, o conceito de Cuidado (Sorge) refere-se à estrutura fundamental do Dasein. Quando um paciente demonstra excessiva preocupação com o que os outros pensam, perdendo-se no 'falatório' público, ele está vivenciando qual aspecto (impróprio) do Cuidado?",
                 options: [
                     "A Decadência (ou Queda) no impessoal.",
                     "A Angústia existencial profunda.",
@@ -463,22 +461,22 @@
                     "O Ser-para-a-morte."
                 ],
                 answer: 0, // A
-                explanation: "O Cuidado (Sorge) tem três estruturas. [cite_start]Perder-se no falatório público é a Decadência (Queda), o modo impróprio de estar no presente [cite: 124, 310-312]."
+                explanation: "O Cuidado (Sorge) tem três estruturas. Perder-se no falatório público é a Decadência (Queda), o modo impróprio de estar no presente."
             },
             {
-                [cite_start]question: "<strong>QUESTÃO 13</strong><br>Sobre a visão de Merleau-Ponty a respeito do corpo, classifique [cite: 130-133]:<br><br>( ) O corpo é um objeto biológico que obedece apenas às leis da fisiologia, separado da mente.<br>( ) 'Sou meu corpo': o corpo é o sujeito da percepção e a condição de possibilidade para haver mundo.<br>( ) O movimento corporal é intencional ('eu posso'), e não apenas um deslocamento mecânico no espaço.<br><br>A sequência correta é:",
+                question: "<strong>QUESTÃO 13</strong><br>Sobre a visão de Merleau-Ponty a respeito do corpo, classifique:<br><br>( ) O corpo é um objeto biológico que obedece apenas às leis da fisiologia, separado da mente.<br>( ) 'Sou meu corpo': o corpo é o sujeito da percepção e a condição de possibilidade para haver mundo.<br>( ) O movimento corporal é intencional ('eu posso'), e não apenas um deslocamento mecânico no espaço.<br><br>A sequência correta é:",
                 options: [
                     "V-F-V",
                     "F-V-V",
-                    "C) V-V-F",
+                    "V-V-F",
                     "F-F-V",
                     "V-F-F"
                 ],
                 answer: 1, // B
-                explanation: "Merleau-Ponty recusa o corpo-objeto (biológico/mecânico). [cite_start]O corpo é sujeito, intencionalidade e condição de mundo [cite: 313-314]."
+                explanation: "Merleau-Ponty recusa o corpo-objeto (biológico/mecânico). O corpo é sujeito, intencionalidade e condição de mundo."
             },
             {
-                question: "<strong>QUESTÃO 14</strong><br>Ludwig Binswanger foi pioneiro na aplicação da fenomenologia à psiquiatria. [cite_start]Como ele propôs compreender a doença mental (ex: esquizofrenia) [cite: 140-142]?",
+                question: "<strong>QUESTÃO 14</strong><br>Ludwig Binswanger foi pioneiro na aplicação da fenomenologia à psiquiatria. Como ele propôs compreender a doença mental (ex: esquizofrenia)?",
                 options: [
                     "Como um déficit cognitivo irreversível.",
                     "Como uma alteração na estrutura do Ser-no-mundo (projeto de mundo), que se torna restrita, rígida ou distorcida, mas que ainda possui um sentido.",
@@ -487,10 +485,10 @@
                     "Como uma 'pane' na máquina corporal sem relação com a história de vida do sujeito."
                 ],
                 answer: 1, // B
-                explanation: "Binswanger vê a doença mental como um 'projeto de mundo' (ex: o mundo do maníaco é amplo e fugaz; o do depressivo é estreito e pesado). [cite_start]Não é apenas falha orgânica [cite: 144, 315-316]."
+                explanation: "Binswanger vê a doença mental como um 'projeto de mundo' (ex: o mundo do maníaco é amplo e fugaz; o do depressivo é estreito e pesado). Não é apenas falha orgânica."
             },
             {
-                question: "<strong>QUESTÃO 15</strong><br>Na fenomenologia de Husserl, a distinção entre Noese e Noema é crucial. [cite_start]Se você está olhando para uma casa e lembrando de sua infância, o Noema refere-se a [cite: 149-150]:",
+                question: "<strong>QUESTÃO 15</strong><br>Na fenomenologia de Husserl, a distinção entre Noese e Noema é crucial. Se você está olhando para uma casa e lembrando de sua infância, o Noema refere-se a:",
                 options: [
                     "O ato psíquico de lembrar ou perceber.",
                     "Os tijolos físicos da casa real.",
@@ -499,10 +497,10 @@
                     "O arquiteto que projetou a casa."
                 ],
                 answer: 2, // C
-                explanation: "Noese é o ato (pensar). Noema é o objeto pensado (o sentido). [cite_start]A casa 'física' (objeto em si) fica fora da redução fenomenológica [cite: 153-154, 319-321]."
+                explanation: "Noese é o ato (pensar). Noema é o objeto pensado (o sentido). A casa 'física' (objeto em si) fica fora da redução fenomenológica."
             },
             {
-                question: "<strong>QUESTÃO 16</strong><br>Heidegger retoma o termo grego Aletheia para falar sobre a Verdade. [cite_start]Diferente da 'verdade como correspondência' (adequação entre intelecto e coisa), Aletheia significa [cite: 157-159]:",
+                question: "<strong>QUESTÃO 16</strong><br>Heidegger retoma o termo grego Aletheia para falar sobre a Verdade. Diferente da 'verdade como correspondência' (adequação entre intelecto e coisa), Aletheia significa:",
                 options: [
                     "A verdade revelada por Deus.",
                     "A verificação científica experimental.",
@@ -511,10 +509,10 @@
                     "A opinião da maioria (senso comum)."
                 ],
                 answer: 2, // C
-                [cite_start]explanation: "Aletheia é o conceito grego de verdade como des-velamento (tirar o véu que encobre o ser), oposto à verdade latina de adequatio (correspondência exata) [cite: 162, 322-323]."
+                explanation: "Aletheia é o conceito grego de verdade como des-velamento (tirar o véu que encobre o ser), oposto à verdade latina de adequatio (correspondência exata)."
             },
             {
-                question: "<strong>QUESTÃO 17</strong><br>I. A Angústia é considerada por Heidegger como uma disposição afetiva privilegiada para a abertura da autenticidade (propriedade).<br><strong>PORQUE</strong><br>II. [cite_start]Na angústia, todas as significações do cotidiano perdem a validade, o mundo se torna inóspito e o Dasein é confrontado com o 'puro ser-possível' e sua finitude, sendo convocado a escolher a si mesmo [cite: 165-169].",
+                question: "<strong>QUESTÃO 17</strong><br>I. A Angústia é considerada por Heidegger como uma disposição afetiva privilegiada para a abertura da autenticidade (propriedade).<br><strong>PORQUE</strong><br>II. Na angústia, todas as significações do cotidiano perdem a validade, o mundo se torna inóspito e o Dasein é confrontado com o 'puro ser-possível' e sua finitude, sendo convocado a escolher a si mesmo.",
                 options: [
                     "As asserções I e II são verdadeiras, e a II justifica a I.",
                     "As asserções I e II são verdadeiras, mas não há relação de justificativa.",
@@ -523,10 +521,10 @@
                     "Ambas são falsas."
                 ],
                 answer: 0, // A
-                [cite_start]explanation: "A angústia quebra a familiaridade do cotidiano impróprio, isola o Dasein e o obriga a encarar que ele é livre e finito, abrindo a porta para a autenticidade [cite: 170, 324-325]."
+                explanation: "A angústia quebra a familiaridade do cotidiano impróprio, isola o Dasein e o obriga a encarar que ele é livre e finito, abrindo a porta para a autenticidade."
             },
             {
-                [cite_start]question: "<strong>QUESTÃO 18</strong><br>Quando se diz que 'a linguagem da criança está no brincar' e 'a linguagem do adulto está na fala', a clínica existencial propõe que [cite: 176-177]:",
+                question: "<strong>QUESTÃO 18</strong><br>Quando se diz que 'a linguagem da criança está no brincar' e 'a linguagem do adulto está na fala', a clínica existencial propõe que:",
                 options: [
                     "A terapia infantil deve forçar a criança a falar para amadurecer.",
                     "O terapeuta deve interpretar as brincadeiras e explicar para a criança o significado oculto imediatamente.",
@@ -535,10 +533,10 @@
                     "O adulto não pode brincar na terapia, pois isso seria uma regressão."
                 ],
                 answer: 2, // C
-                explanation: "A clínica não força a fala adulta. [cite_start]Ela entra no mundo da criança (brincar) para compreender como ela elabora sua existência [cite: 180-181, 326-327]."
+                explanation: "A clínica não força a fala adulta. Ela entra no mundo da criança (brincar) para compreender como ela elabora sua existência."
             },
             {
-                [cite_start]question: "<strong>QUESTÃO 19</strong><br>O conceito de Mitsein (Ser-com) indica que [cite: 183-184]:",
+                question: "<strong>QUESTÃO 19</strong><br>O conceito de Mitsein (Ser-com) indica que:",
                 options: [
                     "O ser humano nasce sozinho e morre sozinho, a convivência é acidental.",
                     "O Dasein é, em sua essência, constituição com os outros; mesmo na solidão física, o outro está presente na sua ausência ou referência.",
@@ -547,10 +545,10 @@
                     "A sociedade é um contrato artificial entre indivíduos isolados."
                 ],
                 answer: 1, // B
-                explanation: "Mitsein é ontológico. Mesmo o eremita é determinado pela relação com os outros (pela falta deles). [cite_start]Não existe 'eu' sem 'outro' [cite: 186-187, 328-330]."
+                explanation: "Mitsein é ontológico. Mesmo o eremita é determinado pela relação com os outros (pela falta deles). Não existe 'eu' sem 'outro'."
             },
             {
-                [cite_start]question: "<strong>QUESTÃO 20</strong><br>Qual filósofo é considerado o 'pai' da Fenomenologia moderna, influenciando diretamente Heidegger, Sartre e Merleau-Ponty [cite: 191-192]?",
+                question: "<strong>QUESTÃO 20</strong><br>Qual filósofo é considerado o 'pai' da Fenomenologia moderna, influenciando diretamente Heidegger, Sartre e Merleau-Ponty?",
                 options: [
                     "René Descartes.",
                     "Immanuel Kant.",
@@ -559,10 +557,10 @@
                     "Friedrich Nietzsche."
                 ],
                 answer: 2, // C
-                explanation: "Husserl é o fundador do método fenomenológico. [cite_start]Descartes é o 'alvo' da crítica [cite: 195, 331-332]."
+                explanation: "Husserl é o fundador do método fenomenológico. Descartes é o 'alvo' da crítica."
             },
             {
-                question: "<strong>QUESTÃO 21</strong><br>Um psicólogo fenomenológico recebe um paciente com histórico de 'Transtorno Bipolar'. [cite_start]Para aplicar a Epoché (Suspensão), o psicólogo deve[cite: 199]:",
+                question: "<strong>QUESTÃO 21</strong><br>Um psicólogo fenomenológico recebe um paciente com histórico de 'Transtorno Bipolar'. Para aplicar a Epoché (Suspensão), o psicólogo deve:",
                 options: [
                     "Ignorar os sintomas de risco de suicídio.",
                     "Colocar o diagnóstico e o saber médico 'entre parênteses' para escutar como o paciente vivencia suas alternâncias de humor em sua singularidade.",
@@ -571,10 +569,10 @@
                     "Encaminhar imediatamente para um psiquiatra sem ouvir o paciente."
                 ],
                 answer: 1, // B
-                [cite_start]explanation: "Epoché não é ignorar risco (segurança vem primeiro), mas suspender o teoricismo do diagnóstico para ouvir a vivência única daquele sujeito bipolar [cite: 201, 333-334]."
+                explanation: "Epoché não é ignorar risco (segurança vem primeiro), mas suspender o teoricismo do diagnóstico para ouvir a vivência única daquele sujeito bipolar."
             },
             {
-                question: "<strong>QUESTÃO 22</strong><br>Heidegger estabelece a 'Diferença Ontológica'. [cite_start]A distinção correta entre Ente e Ser é[cite: 205]:",
+                question: "<strong>QUESTÃO 22</strong><br>Heidegger estabelece a 'Diferença Ontológica'. A distinção correta entre Ente e Ser é:",
                 options: [
                     "Ente é Deus; Ser é o homem.",
                     "Ente é tudo aquilo que 'é' (coisa, objeto, pessoa); Ser é o sentido que permite que o ente apareça e seja compreendido.",
@@ -583,10 +581,10 @@
                     "Ente é o nada; Ser é tudo."
                 ],
                 answer: 1, // B
-                explanation: "Diferença Ontológica fundamental: Ente é a coisa que aparece; [cite_start]Ser é o que determina o ente como ente, o horizonte de sentido [cite: 207-208, 335-337]."
+                explanation: "Diferença Ontológica fundamental: Ente é a coisa que aparece; Ser é o que determina o ente como ente, o horizonte de sentido."
             },
             {
-                question: "<strong>QUESTÃO 23</strong><br>Na perspectiva fenomenológica, a ação humana é sempre propositada. [cite_start]Isso significa que[cite: 213]:",
+                question: "<strong>QUESTÃO 23</strong><br>Na perspectiva fenomenológica, a ação humana é sempre propositada. Isso significa que:",
                 options: [
                     "Todo comportamento é reflexo condicionado (Estímulo-Resposta).",
                     "O homem é determinado pelo passado.",
@@ -595,10 +593,10 @@
                     "O propósito da ação é sempre biológico (sobrevivência)."
                 ],
                 answer: 2, // C
-                explanation: "Na visão existencial, o humano é projeto. [cite_start]A causa (passado) é menos importante que o sentido (futuro/propósito) da ação [cite: 216-217, 338-339]."
+                explanation: "Na visão existencial, o humano é projeto. A causa (passado) é menos importante que o sentido (futuro/propósito) da ação."
             },
             {
-                [cite_start]question: "<strong>QUESTÃO 24</strong><br>Verdadeiro ou Falso - Autores:<br><br>( ) Descartes fundou a modernidade separando mente e corpo.<br>( ) Brentano introduziu a intencionalidade.<br>( ) Heidegger focou na análise dos sonhos como via régia do inconsciente.<br>( ) Binswanger aplicou a analítica existencial na psiquiatria.<br><br>A sequência correta é [cite: 220-224]:",
+                question: "<strong>QUESTÃO 24</strong><br>Verdadeiro ou Falso - Autores:<br><br>( ) Descartes fundou a modernidade separando mente e corpo.<br>( ) Brentano introduziu a intencionalidade.<br>( ) Heidegger focou na análise dos sonhos como via régia do inconsciente.<br>( ) Binswanger aplicou a analítica existencial na psiquiatria.<br><br>A sequência correta é:",
                 options: [
                     "V-V-F-V",
                     "V-V-V-F",
@@ -607,10 +605,10 @@
                     "F-V-V-V"
                 ],
                 answer: 0, // A
-                explanation: "Descartes (Dualismo). Brentano (Intencionalidade). Heidegger (não focou em sonhos, isso foi Boss). [cite_start]Binswanger (Psiquiatria fenomenológica) [cite: 226, 340-341]."
+                explanation: "Descartes (Dualismo). Brentano (Intencionalidade). Heidegger (não focou em sonhos, isso foi Boss). Binswanger (Psiquiatria fenomenológica)."
             },
             {
-                [cite_start]question: "<strong>QUESTÃO 25</strong><br>A expressão 'Ser-para-a-morte' em Heidegger indica uma visão pessimista ou mórbida da vida[cite: 232]?",
+                question: "<strong>QUESTÃO 25</strong><br>A expressão 'Ser-para-a-morte' em Heidegger indica uma visão pessimista ou mórbida da vida?",
                 options: [
                     "Sim, Heidegger era niilista e pregava o suicídio.",
                     "Não, refere-se à compreensão de que a morte é a possibilidade mais própria e insuperável do Dasein, e assumir essa finitude é condição para viver uma vida autêntica.",
@@ -619,10 +617,10 @@
                     "Sim, sugere que nada vale a pena."
                 ],
                 answer: 1, // B
-                [cite_start]explanation: "Ser-para-a-morte não é desejo de morrer, mas a consciência de que o tempo é finito, o que dá urgência e valor às escolhas da vida (propriedade) [cite: 234-235, 342-343]."
+                explanation: "Ser-para-a-morte não é desejo de morrer, mas a consciência de que o tempo é finito, o que dá urgência e valor às escolhas da vida (propriedade)."
             },
             {
-                question: "<strong>QUESTÃO 26</strong><br>O espaço da clínica Daseinsanalítica é descrito como um lugar de 'abertura' e 'acolhimento'. [cite_start]Isso se contrapõe à técnica psicanalítica clássica (neutralidade/abstinência) no sentido de que [cite: 240-241]:",
+                question: "<strong>QUESTÃO 26</strong><br>O espaço da clínica Daseinsanalítica é descrito como um lugar de 'abertura' e 'acolhimento'. Isso se contrapõe à técnica psicanalítica clássica (neutralidade/abstinência) no sentido de que:",
                 options: [
                     "O terapeuta Daseinsanalista deve ser amigo pessoal do paciente.",
                     "O terapeuta envolve-se existencialmente, 'sendo-com' o paciente, mantendo a serenidade para deixar os fenômenos aparecerem como são.",
@@ -631,10 +629,10 @@
                     "A técnica é totalmente dispensável, bastando 'bater papo'."
                 ],
                 answer: 1, // B
-                [cite_start]explanation: "A neutralidade fria é substituída pelo 'deixar-ser' e pela presença autêntica do terapeuta, que acolhe a existência do outro [cite: 244-245, 344-345]."
+                explanation: "A neutralidade fria é substituída pelo 'deixar-ser' e pela presença autêntica do terapeuta, que acolhe a existência do outro."
             },
             {
-                [cite_start]question: "<strong>QUESTÃO 27</strong><br>O conceito heideggeriano de Befindlichkeit (Disposição Afetiva ou Situacionalidade) ensina que[cite: 250]:",
+                question: "<strong>QUESTÃO 27</strong><br>O conceito heideggeriano de Befindlichkeit (Disposição Afetiva ou Situacionalidade) ensina que:",
                 options: [
                     "Podemos controlar racionalmente todas as nossas emoções.",
                     "As emoções são ruídos que atrapalham a razão.",
@@ -643,10 +641,10 @@
                     "Apenas pessoas doentes têm variações de humor."
                 ],
                 answer: 2, // C
-                explanation: "Não escolhemos como nos sentimos (afeto/humor). [cite_start]Somos 'assaltados' por humores que colorem nossa percepção de mundo antes de pensarmos [cite: 253-254, 346-347]."
+                explanation: "Não escolhemos como nos sentimos (afeto/humor). Somos 'assaltados' por humores que colorem nossa percepção de mundo antes de pensarmos."
             },
             {
-                question: "<strong>QUESTÃO 28</strong><br>Historicamente, a criança foi vista como um 'adulto em miniatura'. [cite_start]A fenomenologia critica essa visão porque [cite: 257-258]:",
+                question: "<strong>QUESTÃO 28</strong><br>Historicamente, a criança foi vista como um 'adulto em miniatura'. A fenomenologia critica essa visão porque:",
                 options: [
                     "Ela ignora que a criança tem menos força física.",
                     "Ela desconsidera a especificidade ontológica da infância, impondo categorias adultas (racionalidade, trabalho) a um ser que vive sob o modo do brincar e da imaginação.",
@@ -655,10 +653,10 @@
                     "A fenomenologia apoia a visão de adulto em miniatura."
                 ],
                 answer: 1, // B
-                [cite_start]explanation: "A criança tem um modo de ser (brincar/fantasia) que é qualitativamente diferente, não quantitativamente inferior (miniatura) [cite: 260-261, 348-349]."
+                explanation: "A criança tem um modo de ser (brincar/fantasia) que é qualitativamente diferente, não quantitativamente inferior (miniatura)."
             },
             {
-                [cite_start]question: "<strong>QUESTÃO 29</strong><br>Para a fenomenologia, o 'fenômeno' é [cite: 265-266]:",
+                question: "<strong>QUESTÃO 29</strong><br>Para a fenomenologia, o 'fenômeno' é:",
                 options: [
                     "Uma ilusão que esconde a verdade.",
                     "Apenas a aparência superficial das coisas.",
@@ -667,10 +665,10 @@
                     "Um dado estatístico."
                 ],
                 answer: 2, // C
-                explanation: "Definição clássica de fenomenologia: 'o que se mostra a partir de si mesmo'. [cite_start]Não é aparência enganosa, é a própria manifestação da coisa [cite: 269, 350-352]."
+                explanation: "Definição clássica de fenomenologia: 'o que se mostra a partir de si mesmo'. Não é aparência enganosa, é a própria manifestação da coisa."
             },
             {
-                [cite_start]question: "<strong>QUESTÃO 30</strong><br>Qual é o objetivo final de um processo psicoterapêutico de base fenomenológico-existencial [cite: 272-274]?",
+                question: "<strong>QUESTÃO 30</strong><br>Qual é o objetivo final de um processo psicoterapêutico de base fenomenológico-existencial?",
                 options: [
                     "A remissão total dos sintomas biológicos.",
                     "A adaptação do indivíduo às normas sociais para ser produtivo.",
@@ -679,13 +677,13 @@
                     "O fortalecimento do Ego contra o Id."
                 ],
                 answer: 2, // C
-                [cite_start]explanation: "O foco não é apenas sintoma ou adaptação (visões naturalistas), mas a liberdade e responsabilidade do sujeito diante de sua própria vida (existencialismo) [cite: 277-278, 353]."
+                explanation: "O foco não é apenas sintoma ou adaptação (visões naturalistas), mas a liberdade e responsabilidade do sujeito diante de sua própria vida (existencialismo)."
             }
         ];
 
         let currentQuestion = 0;
         let score = 0;
-        let hasAnswered = false; // Controle para não deixar responder duas vezes
+        let hasAnswered = false;
 
         // Elementos do DOM
         const questionContainer = document.getElementById('question-container');
@@ -707,7 +705,7 @@
 
         // Mostrar Questão
         function showQuestion() {
-            hasAnswered = false; // Resetar estado
+            hasAnswered = false;
             const q = questions[currentQuestion];
             
             let html = `
@@ -752,7 +750,7 @@
 
         // Lógica ao clicar na resposta
         function handleOptionClick(element, selectedIndex) {
-            if (hasAnswered) return; // Impede duplo clique
+            if (hasAnswered) return;
             hasAnswered = true;
 
             const q = questions[currentQuestion];
@@ -793,7 +791,6 @@
         }
 
         function updateProgress() {
-            // Se já respondeu a atual, conta como progresso
             const answeredCount = hasAnswered ? currentQuestion + 1 : currentQuestion;
             const progress = (answeredCount / questions.length) * 100;
             progressText.textContent = `${Math.round(progress)}%`;
